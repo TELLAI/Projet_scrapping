@@ -1,0 +1,73 @@
+body {
+  background-color: #FFEEE4;
+}
+#contain {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin: auto;
+  
+}
+#contain h1 {
+  max-width: 80%;
+  margin: auto;
+  padding: 0.5em;
+}
+#mydata {
+  background-color: #CE6D39;
+  padding: 2em 0;
+  border-radius: 1em;
+}
+#mydata div {
+  display: flex;
+  flex-direction: row;
+  max-width: 95%;
+  margin: 0.5em auto;
+  background-color: #000000;
+  border-radius: 3em;
+
+}
+.data {
+  color: #F17F42;
+}
+
+#formulaires{
+  background-color: #CE6D39;
+}
+#form2 {
+  display: flex;
+  flex-direction: column;
+  max-width: 95%;
+  margin: 0.5em auto;
+  border-radius: 3em;
+  background-color: #CE6D39;
+}
+.ele_form{
+  text-align: center;
+  width: 40%;
+  margin: 0.1em auto;
+  padding: 0.8em;
+  border-radius: 0.5em;
+  border-color:  #CE6D39;
+}
+#title_section {
+  text-align: center;
+}
+.btn_aff{
+  border-style: solid;
+  background-color: #000000;
+  color: #CE6D39;
+  border-radius: 0.5em;
+  text-align: center;
+  width: 40%;
+  margin: 0.5em auto;
+}
+#f1, #f2 {
+  display: none;
+  flex-direction: column;
+  border-radius: 2em;
+  background-color: #CE6D39;
+}
+a{
+  text-decoration: none;
+}

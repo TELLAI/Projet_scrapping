@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div id= "contain">
+      <h1>TOP FOOT</h1>
+      <div id = "mydata">
+        {% for i in result %}
+        <div class="line">
+          {% for j in i %}
+          <div class="data">{{ j }}</div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+      
+    </div>
+  </body>
+</html>

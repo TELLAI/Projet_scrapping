@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+     <div id= "contain">
+      <h1>TOP FOOT</h1>
+          <div id="formulaires">
+              <p id=title_section>RECHERCHE</p>
+            <form action="#" method="post" id="form2">
+                <a href="#"><p class="btn_aff" id="date">Par dates</p></a>
+                <div id="f1">
+                    <p class="f1 ele_form">Dates</p>
+                    <input type="text" name="d1"class="f1 ele_form">
+                    <input type="text" name="d2"class="f1 ele_form">
+                    <input type="submit" name="gm" value="Rechercher"class="f1 ele_form">
+                </div>
+                <a href="#" ><p class="btn_aff" id="equipe">Par Equipe</p></a>
+                <div id="f2">
+                    <p class="f2 ele_form">Equipe</p>
+                    <input type="text" name="eq1" class="f2 ele_form">
+                    <input type="submit" name="gm" value="Rechercher" class="f2 ele_form">
+                </div>
+
+            </form>
+            
+            
+            <a href="/Affiche"><p class="btn_aff">Gros matchs</p></a>
+            </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
