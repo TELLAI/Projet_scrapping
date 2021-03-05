@@ -4,9 +4,9 @@ from project.mysql_api import Mydb_scrap
 
 
 # Update connection string information
-host = "scrappostgre.postgres.database.azure.com"
+host = "youcefscrap.postgres.database.azure.com"
 dbname = "postgres"
-user = "youcefscrap@scrappostgre"
+user = "youcef@youcefscrap"
 password = "Satellite93@"
 sslmode = "require"
 
@@ -41,7 +41,7 @@ for ii, i in enumerate(data):
     sql  = "INSERT INTO Match (Nom, Date_text, Time, Equipe1, Equipe2, Competition, Chaine, Date_num) VALUES {value};".format(value=tuple_i)
     cursor.execute(sql)
 
-cursor.execute("SELECT * FROM Match limit 10 ORDER BY desc;")
+cursor.execute("SELECT * FROM Match limit 10;")
 result = cursor.fetchall()
 print(result)
 # Clean up

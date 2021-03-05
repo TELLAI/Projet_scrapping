@@ -4,9 +4,9 @@ from project.mysql_api import Mydb_scrap
 
 
 # Update connection string information
-host = "scrappostgre.postgres.database.azure.com"
+host = "youcefscrap.postgres.database.azure.com"
 dbname = "postgres"
-user = "youcefscrap@scrappostgre"
+user = "youcef@youcefscrap"
 password = "Satellite93@"
 sslmode = "require"
 
