@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'psql "host=youcefscrap.postgres.database.azure.com port=5432 dbname=postrges user=youcef@youcefscrap password=Satellite93@ sslmode=require"'
+app.config['SQLALCHEMY_DATABASE_URI'] = "host=youcefscrap.postgres.database.azure.com port=5432 dbname=postrges user=youcef@youcefscrap password=Satellite93@ sslmode=require"'
 
 mysql = SQLAlchemy(app)
 
