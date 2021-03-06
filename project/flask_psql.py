@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "host=youcefscrap.postgres.database.azure.com port=5432 dbname=postrges user=youcef@youcefscrap password=Satellite93@ sslmode=require"
 
-mysql = SQLAlchemy(app)
+conn = SQLAlchemy(app)
 
 @app.route('/home', methods=['POST', 'GET'])
 def index():
@@ -25,7 +25,7 @@ def index():
 
 @app.route('/Date/<d1>/<d2>', methods=['GET', 'POST'])
 def Date(d1, d2):
-    cur = mysql.connection.cursor()
+    cur = conn.connection.cursor()
     cur.execute("SELECT Nom, Date_text, Time, Chaine FROM Matchs_t WHERE Date(Date_num)>=Date(%s) AND Date(Date_num)<=Date(%s);", (d1, d2))
     result = cur.fetchall()
     if len(result) == 0:
@@ -37,7 +37,7 @@ def Date(d1, d2):
 
 @app.route('/Equipe/<equipe>', methods=['GET', 'POST'])
 def Team(equipe):
-    cur = mysql.connection.cursor()
+    cur = conn.connection.cursor()
     cur.execute("SELECT Nom, Date_text, Time, Chaine FROM Matchs_t WHERE Equipe1 LIKE %s OR Equipe2 LIKE %s;", (equipe, equipe))
     result = cur.fetchall()
     if len(result) == 0:
@@ -62,7 +62,7 @@ def Affiche():
         else:
             req = req + "'" + j + "', "
     
-    cur = mysql.connection.cursor()
+    cur = conn.connection.cursor()
     cur.execute(req)
     result = cur.fetchall()
     cur.close()
