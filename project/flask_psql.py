@@ -26,7 +26,6 @@ def index():
 @app.route('/Date/<d1>/<d2>', methods=['GET', 'POST'])
 def Date(d1, d2):
     cur = mysql.connection.cursor()
-    cur.execute("use scrap;")
     cur.execute("SELECT Nom, Date_text, Time, Chaine FROM Matchs_t WHERE Date(Date_num)>=Date(%s) AND Date(Date_num)<=Date(%s);", (d1, d2))
     result = cur.fetchall()
     if len(result) == 0:
@@ -39,7 +38,6 @@ def Date(d1, d2):
 @app.route('/Equipe/<equipe>', methods=['GET', 'POST'])
 def Team(equipe):
     cur = mysql.connection.cursor()
-    cur.execute("use scrap;")
     cur.execute("SELECT Nom, Date_text, Time, Chaine FROM Matchs_t WHERE Equipe1 LIKE %s OR Equipe2 LIKE %s;", (equipe, equipe))
     result = cur.fetchall()
     if len(result) == 0:
@@ -65,7 +63,6 @@ def Affiche():
             req = req + "'" + j + "', "
     
     cur = mysql.connection.cursor()
-    cur.execute("use scrap;")
     cur.execute(req)
     result = cur.fetchall()
     cur.close()
