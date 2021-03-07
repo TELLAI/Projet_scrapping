@@ -1,28 +1,52 @@
-# SCRAPPER-FOOT
+# Scrapper
 
-Ce dépôt contient le _frontend_ et le _backend_ de l'application scrapper_foot qui permet de récuperer des informations sur la programmation des matchs de foot à venir.
+## Le code au service de la passion !!!
 
-## Prérequis
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
-Afin de pouvoir exécuter l'application sur votre poste, vous devez d'abord installer les dépendances suivantes :
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-- Python3
-- flask
-- mysql
+Ce dépôt contient le frontend et le backend de l'application scrapper_foot qui permet de récuperer des informations sur la programmation des matchs de foot à venir.
 
-### Installation
+## Features
 
-#### Python
+- Faire une recherche pour obtenir le calendrier de votre équipe favorite
+- Faire une recherche pour une date donnée
+- Avoir la liste des meilleurs matchs (entre grandes équipes).
 
-1. Télécharger la derniere version
-2. Suivre les étapes d'installation en laissant les options par défaut.
+## Tech
 
-### flask
+Cette application utilise les technologies suivantes:
 
-1. Télécharger la derniere version
-2. Suivre les étapes d'installation en laissant les options par défaut.
-3. Télécharger flask_mysql_connector et flask_cors
+### Front-end:
 
-### mysql
+- [HTML] - Pour la mise en page
+- [CSS] - Pour le style
+- [JINJA] - Pour la liaison Front et Back
 
-1. Télécharger la dernière version de mysql
+### Back-end:
+
+- [Python] - Pour l'algorythme
+- [Flask] - Pour communiquer avec ma base de donnée
+- [Mysql] - Stockage des données
+
+### Autres:
+
+- [Docker] - Pour conteneuriser mon application
+
+## Installation
+
+1- Cloner ce repository en local
+2- Executer cette commande pour ouvrir le project sur un conteneur docker:
+====> sudo docker build -t (nom_image) .
+====> sudo docker run -it --rm (nom_image) -p 5200:(port_conteneur)
+
+## Developement
+
+1- Pour améliorer le rendement de mon application je doit trouver une meilleur d'information à scrapper
+2- Déployer cette application sur le Cloud afin de l'utiliser au quotidien
+
+## Templete
+
+![Alt text](img/home.png "Page d'acceuil")
+![Alt text](img/search.png "Page recherche")
