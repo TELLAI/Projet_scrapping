@@ -1,13 +1,14 @@
 import psycopg2
 import os
 from project.mysql_api import Mydb_scrap
+from dotenv import load_dotenv
 
-
+load_dotenv()
 # Update connection string information
 host = "youcefscrap.postgres.database.azure.com"
 dbname = "postgres"
 user = "youcef@youcefscrap"
-password = "Satellite93@"
+password = os.getenv("MDP")
 sslmode = "require"
 
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
