@@ -3,10 +3,14 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
+host = "youcefscrap.postgres.database.azure.com"
+dbname = "postgres"
+user = "youcef@youcefscrap"
+password = "Satellite93@"
+sslmode = "require"
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
+conn = psycopg2.connect(conn_string)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "host=youcefscrap.postgres.database.azure.com port=5432 dbname=postrges user=youcef@youcefscrap password=Satellite93@ sslmode=require"
-
-conn = SQLAlchemy(app)
 
 @app.route('/home', methods=['POST', 'GET'])
 def index():
@@ -25,7 +29,7 @@ def index():
 
 @app.route('/Date/<d1>/<d2>', methods=['GET', 'POST'])
 def Date(d1, d2):
-    cur = conn.connection.cursor()
+    cur = conn.cursor()
     cur.execute("SELECT Nom, Date_text, Time, Chaine FROM Match WHERE Date(Date_num)>=Date(%s) AND Date(Date_num)<=Date(%s);", (d1, d2))
     result = cur.fetchall()
     if len(result) == 0:
@@ -37,7 +41,7 @@ def Date(d1, d2):
 
 @app.route('/Equipe/<equipe>', methods=['GET', 'POST'])
 def Team(equipe):
-    cur = conn.connection.cursor()
+    cur = conn.cursor()
     cur.execute("SELECT Nom, Date_text, Time, Chaine FROM Match WHERE Equipe1 LIKE %s OR Equipe2 LIKE %s;", (equipe, equipe))
     result = cur.fetchall()
     if len(result) == 0:
@@ -62,7 +66,7 @@ def Affiche():
         else:
             req = req + "'" + j + "', "
     
-    cur = conn.connection.cursor()
+    cur = conn.cursor()
     cur.execute(req)
     result = cur.fetchall()
     cur.close()
