@@ -1,11 +1,14 @@
 import psycopg2
 from flask import Flask, render_template, request, jsonify, redirect, url_for
+import os
+from dotenv import load_dotenv
 app = Flask(__name__)
 
+load_dotenv()
 host = "youcefscrap.postgres.database.azure.com"
 dbname = "postgres"
 user = "youcef@youcefscrap"
-password = "Satellite93@"
+password = os.getenv('MDP')
 sslmode = "require"
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string)
