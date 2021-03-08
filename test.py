@@ -15,9 +15,9 @@ conn = psycopg2.connect(conn_string)
 print("Connection established")
 
 cursor = conn.cursor()
-d1 = "100321"
-d2 = "200321"
-cursor.execute("SELECT Nom, Date_text, Time, Chaine FROM Matchs_t WHERE Date(Date_num)>=Date(%s) AND Date(Date_num)<=Date(%s);", (d1, d2))
+equipe = "Real madrid"
+cursor.execute("SELECT Nom, Date_text, Time, Chaine FROM Match WHERE Equipe1 LIKE %s OR Equipe2 LIKE %s;", (equipe, equipe))
+#cursor.execute("SELECT * FROM Match limit 10;")
 result = cursor.fetchall()
 print(result)
 # Clean up

@@ -1,6 +1,5 @@
 import psycopg2
 from flask import Flask, render_template, request, jsonify, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 host = "youcefscrap.postgres.database.azure.com"
