@@ -1,5 +1,5 @@
 FROM python:latest
 COPY . .
-RUN pip flask psycopg2 python-dotenv
-CMD python project/flask/flask_psql.py
+RUN pip install flask psycopg2 python-dotenv
+CMD python flask_psql.py
 EXPOSE 4000

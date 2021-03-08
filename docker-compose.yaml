@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  scrapper:
+    build: ./project/scrapper
+    restart: always
+    environment: 
+      - DB_ROOT_PASSWORD=Satellite93@
+      - DB_NAME=postgres
+      - MYSQL_USER=youcef@youcefscrap
+      - MYSQL_HOST=youcefscrap.postgres.database.azure.com
+  
+  flask:
+    build: project/flask/.
+    ports:
+      - "5000:4000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_RUN_PORT=4000
+      - DB_ROOT_PASSWORD=Satellite93@
+      - DB_NAME=postgres
+      - MYSQL_USER=youcef@youcefscrap
+      - MYSQL_HOST=youcefscrap.postgres.database.azure.com
+    depends_on: "scrapper"
+    restart: always
+  
+  database:
+    build: project/database/.
+    
