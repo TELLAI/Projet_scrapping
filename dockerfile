@@ -1,5 +1,5 @@
 FROM python:latest
 COPY . .
-RUN pip install mysql-connector flask_mysql_connector flask_cors flask bs4 datetime prettify requests
+RUN pip flask psycopg2 python-dotenv
 CMD python project/route_flask.py
-EXPOSE 5000
+EXPOSE 4000
