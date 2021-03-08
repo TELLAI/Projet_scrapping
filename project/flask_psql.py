@@ -26,7 +26,7 @@ def index():
 @app.route('/Date/<d1>/<d2>', methods=['GET', 'POST'])
 def Date(d1, d2):
     cur = conn.connection.cursor()
-    cur.execute("SELECT Nom, Date_text, Time, Chaine FROM Matchs_t WHERE Date(Date_num)>=Date(%s) AND Date(Date_num)<=Date(%s);", (d1, d2))
+    cur.execute("SELECT Nom, Date_text, Time, Chaine FROM Match WHERE Date(Date_num)>=Date(%s) AND Date(Date_num)<=Date(%s);", (d1, d2))
     result = cur.fetchall()
     if len(result) == 0:
         data = []
@@ -38,7 +38,7 @@ def Date(d1, d2):
 @app.route('/Equipe/<equipe>', methods=['GET', 'POST'])
 def Team(equipe):
     cur = conn.connection.cursor()
-    cur.execute("SELECT Nom, Date_text, Time, Chaine FROM Matchs_t WHERE Equipe1 LIKE %s OR Equipe2 LIKE %s;", (equipe, equipe))
+    cur.execute("SELECT Nom, Date_text, Time, Chaine FROM Match WHERE Equipe1 LIKE %s OR Equipe2 LIKE %s;", (equipe, equipe))
     result = cur.fetchall()
     if len(result) == 0:
         data = []
@@ -50,7 +50,7 @@ def Team(equipe):
 @app.route('/Affiche')
 def Affiche():
     list_equipe = ["Real Madrid", "Barcelone", "Liverpool", "Atlético", "Chelsea", "Manchester C.", "Manchester U.", "Milan", "Leceister", "Marseille OM", "Lyon OL", "Naples", "Tottenham", "Inter", "Arsenal", "Paris PSG", "Dortmund", "Bayern", "Benfica", "Juventus"]
-    req = "SELECT Nom, Date_text, Time, Chaine FROM Matchs_t WHERE Equipe1 in ("
+    req = "SELECT Nom, Date_text, Time, Chaine FROM Match WHERE Equipe1 in ("
     for ii, i in enumerate(list_equipe):
         if ii == len(list_equipe) - 1:
             req = req + "'" + i + "') AND Equipe2 in ("
