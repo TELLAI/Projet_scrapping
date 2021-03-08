@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 app = Flask(__name__)
 
 load_dotenv()
-host = "youcefscrap.postgres.database.azure.com"
-dbname = "postgres"
-user = "youcef@youcefscrap"
-password = os.getenv('MDP')
+host = os.getenv('ENV_HOST')
+dbname = os.getenv('ENV_dbname')
+user = os.getenv('ENV_user')
+password = os.getenv('ENV_MDP')
 sslmode = "require"
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string)

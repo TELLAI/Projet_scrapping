@@ -1,0 +1,4 @@
+FROM python:latest
+COPY . .
+RUN pip install psycopg2 dotenv
+CMD python psql_api.py

@@ -1,7 +1,7 @@
 import logging
-from project.api_scrap import Scrap_info
-from project.mysql_api import Mydb_scrap
-from project.route_flask import *
+from project.scrapper.api_scrap import Scrap_info
+from project.database.psql_api import Mydb_scrap
+from project.flask.flask_psql import *
 
 logging.basicConfig(level=logging.DEBUG,
                     filename="LOG_scrap.log",
@@ -30,4 +30,4 @@ def main():
 
 
 if __name__=='__main__':
-    app.run(host="0.0.0.0", port=5200, debug=True)
+    app.run(host="0.0.0.0", port=4000, debug=True)

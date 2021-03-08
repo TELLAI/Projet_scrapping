@@ -62,4 +62,3 @@ class Scrap_info:
                     compet = "match finie"
                     dict_match = {"Nom":match, "Date_text":date_text, "Time":time, "Equipe1":eq1, "Equipe2":eq2, "Competition":compet, "Chaine":chaine, "Date_num": date_num}
                 self.matchs.append(dict_match)
-
