@@ -1,5 +1,17 @@
 FROM python:latest
+
+WORKDIR /app
+
+ENV FLASK_APP=route_flask.py
+ENV FLASK_RUN_HOST=0.0.0.0
+
 COPY . .
-RUN pip install flask psycopg2 python-dotenv
-CMD python flask_psql.py
-EXPOSE 4000
+
+RUN pip install -r requirements.txt
+
+EXPOSE 3200
+
+CMD ["python", "route_flask.py"]
+
+
+

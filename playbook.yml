@@ -1,0 +1,28 @@
+- name: Configure VM
+  hosts: youcef-vm
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: copy repository
+      synchronize:
+        #path ou se trouve mon playbook
+        src: "~/devCloud/project/Projet_scrapping"
+        #path a la racine de ma VM
+        dest: ./
+    - name: installing apt-packages
+      apt: name={{ item }} update_cache=yes state=latest
+      with_items:
+        - docker
+        - docker-compose
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
+    
+    - name: pull an image
+      docker_image:
+        name: python
+    - name: pull an image
+      docker_image:
+        name: mysql
+    
+    - name: Go to the folder and execute docker-compose
+      shell: chdir=Projet_scrapping/ docker-compose up --build

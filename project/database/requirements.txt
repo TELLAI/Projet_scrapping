@@ -1,0 +1,11 @@
+Flask==1.1.2
+bs4==0.0.1
+mysql-connector-python==8.0.23
+python-dotenv==0.15.0
+requests==2.22.0
+Flask-Cors==3.0.10
+flask-mysql-connector==1.0.3
+DateTime==4.3
+prettify==0.1.1
+
+

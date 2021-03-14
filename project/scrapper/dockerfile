@@ -1,4 +1,0 @@
-FROM python:latest
-COPY . .
-RUN pip install bs4 requests prettify datetime
-CMD python api_scrap.py

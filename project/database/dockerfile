@@ -1,4 +1,9 @@
 FROM python:latest
+
+WORKDIR /app
+
 COPY . .
-RUN pip install psycopg2 python-dotenv
-CMD python psql_api.py
+
+RUN pip install -r requirements.txt
+
+CMD ["python", "user.py"]

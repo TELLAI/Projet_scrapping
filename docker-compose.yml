@@ -1,0 +1,65 @@
+version: "3.3"
+services:
+  flask:
+    container_name: "search"
+    build: ./project/flask
+    ports:
+      - "3000:3200"
+    restart: always
+    depends_on:
+      - "mysql"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_RUN=3200
+      - MYSQL_USER=root
+      - MYSQL_HOST=db
+      - MYSQL_ROOT_PASSWORD=pw
+      - MYSQL_DATABASE=scrap
+    # command: sh -c "./wait-for-it.sh mysql:3306 --timeout=20 -- python app.py"
+    command:
+      [
+        "./wait-for-it.sh",
+        "mysql:3306",
+        "--timeout=30",
+        "--",
+        "python",
+        "project/flask/route_flask.py",
+      ]
+
+  scrap:
+    container_name: "scrapper"
+    build: ./project/database
+    restart: always
+    depends_on:
+      - "mysql"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_RUN=3200
+      - MYSQL_USER=root
+      - MYSQL_HOST=db
+      - MYSQL_ROOT_PASSWORD=pw
+      - MYSQL_DATABASE=scrap
+    # command: sh -c "./wait-for-it.sh mysql:3306 --timeout=20 -- python app.py"
+    command:
+      [
+        "./wait-for-it.sh",
+        "mysql:3306",
+        "--timeout=30",
+        "--",
+        "python",
+        "project/database/main.py",
+      ]
+
+  mysql:
+    image: "mysql"
+    container_name: "db"
+    environment:
+      - MYSQL_ROOT_PASSWORD=pw
+      - MYSQL_DATABASE=scrap
+      - MYSQL_USER=root
+
+
