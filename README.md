@@ -2,10 +2,6 @@
 
 ## Le code au service de la passion !!!
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 Ce dépôt contient le frontend et le backend de l'application scrapper_foot qui permet de récuperer des informations sur la programmation des matchs de foot à venir.
 
 ## Features
